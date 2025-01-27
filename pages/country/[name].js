@@ -32,9 +32,9 @@ const CountryDetails = () => {
   if (!country) return <div>Loading...</div>;
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-4xl font-bold text-center mb-8">{country.name.common}</h1>
-      <div className="flex flex-col items-center">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-cover bg-center bg-no-repeat p-4" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')" }}>
+      <h1 className="text-4xl font-bold text-center mb-8 text-white">{country.name.common}</h1>
+      <div className="flex flex-col items-center bg-white p-4 rounded-lg shadow-md">
         <img src={country.flags.svg} alt={`${country.name.common} flag`} className="w-32 h-32 mb-4" />
         <p className="text-lg"><strong>Population:</strong> {country.population}</p>
         <p className="text-lg"><strong>Region:</strong> {country.region}</p>

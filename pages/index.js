@@ -24,8 +24,8 @@ export default function Home() {
   );
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-4">
-      <h1 className="text-4xl font-bold text-center mb-8">Country Information</h1>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-cover bg-center bg-no-repeat p-4" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')" }}>
+      <h1 className="text-4xl font-bold text-center mb-8 text-white">Country Information</h1>
       <input
         type="text"
         placeholder="Search for a country..."
