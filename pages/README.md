@@ -16,6 +16,8 @@ This is a responsive country information app built using Next.js and the REST Co
 - Node.js (version 14.x or later)
 - npm (version 6.x or later)
 
+- link to live Demo https://country-information-app-sepia.vercel.app/
+
 
 
    
