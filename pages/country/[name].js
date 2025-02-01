@@ -1,7 +1,10 @@
+// Import necessary hooks from React and Next.js
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
+
 const CountryDetails = () => {
+  // Use Next.js router to get the dynamic route parameter
   const router = useRouter();
   const { name } = router.query;
   const [country, setCountry] = useState(null);
@@ -13,11 +16,12 @@ const CountryDetails = () => {
         .then(response => response.json())
         .then(data => setCountry(data[0]));
     }
-
+// Retrieve saved favorites from localStorage
     const savedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
     setFavorites(savedFavorites);
   }, [name]);
 
+  // Function to toggle the country as a favorite
   const toggleFavorite = () => {
     let updatedFavorites;
     if (favorites.includes(country.cca3)) {
@@ -28,9 +32,11 @@ const CountryDetails = () => {
     setFavorites(updatedFavorites);
     localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
   };
-
+// Show a loading message if the country data is not yet available
+if (!country) return <div>Loading...</div>;
   if (!country) return <div>Loading...</div>;
 
+// Render the country details
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-cover bg-center bg-no-repeat p-4" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')" }}>
       <h1 className="text-4xl font-bold text-center mb-8 text-white">{country.name.common}</h1>

@@ -15,7 +15,7 @@ h1 {
   margin-top: 20px;
   font-size: 2.5rem;
 }
-
+/* Style for input elements */
 input {
   display: block;
   margin: 20px auto;
@@ -27,14 +27,14 @@ input {
   font-size: 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
+/* Style for unordered lists */
 ul {
   list-style-type: none;
   padding: 0;
   margin: 20px auto;
   max-width: 600px;
 }
-
+/* Style for list items */
 li {
   background-color: #fff;
   margin: 10px 0;
@@ -44,12 +44,12 @@ li {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s, box-shadow 0.2s;
 }
-
+/* Hover effect for list items */
 li:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
-
+/* button styling*/
 button {
   background-color: #3182ce;
   color: white;

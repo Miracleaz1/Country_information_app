@@ -1,24 +1,29 @@
+// Import necessary hooks from React and Link component from Next.js
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
 export default function Home() {
+   // State to store the list of countries, search input, and favorites
   const [countries, setCountries] = useState([]);
   const [search, setSearch] = useState('');
   const [favorites, setFavorites] = useState([]);
 
+ // Fetch all countries from the REST Countries API
   useEffect(() => {
     fetch('https://restcountries.com/v3.1/all')
       .then(response => response.json())
       .then(data => setCountries(data));
 
+    // Retrieve saved favorites from localStorage
     const savedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
     setFavorites(savedFavorites);
   }, []);
-
+// Handle search input change
   const handleSearch = (e) => {
     setSearch(e.target.value);
   };
 
+  // Filter the list of countries based on the search input
   const filteredCountries = countries.filter(country =>
     country.name.common.toLowerCase().includes(search.toLowerCase())
   );
