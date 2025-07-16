@@ -10,7 +10,7 @@ export default function Home() {
 
  // Fetch all countries from the REST Countries API
   useEffect(() => {
-    fetch('https://restcountries.com/v3.1/all')
+  fetch('https://restcountries.com/v3.1/all?fields=name,capital,region,population,flags,languages,currencies,cca3')
       .then(response => response.json())
       .then(data => setCountries(data));
 
@@ -24,9 +24,11 @@ export default function Home() {
   };
 
   // Filter the list of countries based on the search input
-  const filteredCountries = countries.filter(country =>
-    country.name.common.toLowerCase().includes(search.toLowerCase())
-  );
+ const filteredCountries = Array.isArray(countries)
+  ? countries.filter(country =>
+      country.name.common.toLowerCase().includes(search.toLowerCase())
+    )
+  : [];
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-cover bg-center bg-no-repeat p-4" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')" }}>

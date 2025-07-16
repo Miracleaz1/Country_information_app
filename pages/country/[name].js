@@ -12,9 +12,10 @@ const CountryDetails = () => {
 
   useEffect(() => {
     if (name) {
+      // Fetch country details from the REST Countries API using the country code from the route parameter
       fetch(`https://restcountries.com/v3.1/alpha/${name}`)
         .then(response => response.json())
-        .then(data => setCountry(data[0]));
+        .then(data => setCountry(data[0])); // Save the country data to the state
     }
 // Retrieve saved favorites from localStorage
     const savedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
@@ -33,7 +34,6 @@ const CountryDetails = () => {
     localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
   };
 // Show a loading message if the country data is not yet available
-if (!country) return <div>Loading...</div>;
   if (!country) return <div>Loading...</div>;
 
 // Render the country details
